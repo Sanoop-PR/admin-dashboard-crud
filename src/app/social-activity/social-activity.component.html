@@ -1,0 +1,80 @@
+<main>
+    <mat-card style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+        <mat-card-header><h3><b>SOCIAL ACTIVITY</b></h3></mat-card-header>
+        <mat-divider></mat-divider>
+        <br>
+        <mat-card-content class="socialMedia">
+            <section *ngFor="let item of socialActivity" [style.background]="item.color">
+                <div class="media">
+                    <div>
+                        <h3>{{item.title}}</h3>
+                        <h1> <mat-icon>arrow_upward</mat-icon> {{item.tweets}}</h1>
+                        <p>{{item.last}}</p>
+                    </div>
+                    <div class="mediaIcon">
+                        <i class="{{item.icon}}"></i>
+                    </div>
+                </div>
+            </section>
+        </mat-card-content>
+    </mat-card>
+      
+    <mat-card style="box-shadow: none; margin-top: 30px;">
+        <mat-card-content><h3><b>SOCIAL MEDIA CONVERSATIONS</b></h3></mat-card-content>
+    </mat-card>      
+    <mat-divider></mat-divider>
+    <section class="example-container mat-elevation-z8" tabindex="0">
+        <table mat-table [dataSource]="conversations" class="mat-elevation-z8">
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="Source">
+              <th mat-header-cell *matHeaderCellDef> Source </th>
+              <td mat-cell *matCellDef="let element"> {{element.Source}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="ConValue">
+              <th mat-header-cell *matHeaderCellDef class="Conversation"> Conversation </th>
+              <td mat-cell *matCellDef="let element">  
+                <mat-progress-bar mode="determinate" value="{{element.ConValue}}"></mat-progress-bar>
+              </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="cV1">
+              <th mat-header-cell *matHeaderCellDef>  </th>
+              <td mat-cell *matCellDef="let element"> {{element.cV1}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="cV2">
+              <th mat-header-cell *matHeaderCellDef>  </th>
+              <td mat-cell *matCellDef="let element" [style.color]="element.cVcolor"> {{element.cV2}} </td>
+            </ng-container>
+    
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="sess">
+                <th mat-header-cell *matHeaderCellDef class="Conversation"> Sessions	 </th>
+                <td mat-cell *matCellDef="let element"> {{element.sess}} </td>
+            </ng-container>
+    
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="sess1">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let element" [style.color]="element.sessColor"> {{element.sess1}} </td>
+            </ng-container>
+    
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="avg">
+                <th mat-header-cell *matHeaderCellDef class="Conversation"> Avg. Rate </th>
+                <td mat-cell *matCellDef="let element"> {{element.avg}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </section>
+      
+      
+      
+</main>

@@ -1,0 +1,98 @@
+main{
+    /* background-color: rgb(187, 187, 187); */
+    padding: 30px;
+    /* width: 100%; */
+}
+/* four graph */
+.FOurgraph{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
+}
+
+.FOurgraph>div{
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.FOurgraph>div>highcharts-chart{
+    /* width: 100%; */
+    /* height: 100px; */
+}
+
+.graph-title{
+    padding: 10px 0 0 20px;
+}
+.graph-title>*{
+    padding: 0;
+    margin: 0;
+}
+
+
+/* recent-food-section */
+.analysis{
+    margin-top: 30px;
+}
+.analysis>mat-card>mat-card-content{
+    display: flex;
+    justify-content: space-between;
+}
+.food-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* MONTHLY REVENUE */
+
+.weekPercentage{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* TREADING ORDERS */
+.TREADINGORDERS>mat-card>mat-card-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+}
+.trd-order-card{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.trd-order-card>img{
+    width: 100%;
+    height: 250px;
+}
+.trd-order-contant{
+    display: flex;
+    justify-content: space-between;
+}
+.trd-order-contant>mat-card-subtitle>span,.trd-order-contant>div>mat-card-subtitle>span{
+    color: red;
+}
+.trd-order-contant>div>h4{
+    float: right;
+    margin: 0;
+    color: green;
+}
+
+/* ORDER TIMING CHART */
+.TIMINGCHART>div>highcharts-chart{
+    height: 400px;
+}
+
+
+/* mat-tab-group>mat-tab{
+    padding: 0 20px;
+} */
+
+@media screen and (max-width: 480px) {
+    .FOurgraph{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .TREADINGORDERS>mat-card>mat-card-content{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

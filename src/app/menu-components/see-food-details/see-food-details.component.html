@@ -1,0 +1,20 @@
+<main>
+    <div class="container">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{foodDetail.image}}">
+          </div>
+          <div class="card-text">
+            <!-- <p class="card-meal-type">Breakfast/Eggs</p> -->
+            <h2 class="card-title">{{foodDetail.name}}</h2>
+            <p class="card-body">Quantity : {{foodDetail.quanity}}</p>
+            <p class="card-body">Revenue :{{foodDetail.revenue}}</p>
+            <p class="card-body">Order : {{foodDetail.order}}</p>
+            <p class="card-body stock" [ngStyle]="{'background-color':foodDetail.stock === 'In Stock' ? 'green' : 'red' }">{{foodDetail.stock}}</p>
+          </div>
+          <div class="card-price">{{foodDetail.price}}</div>
+          <button mat-raised-button color="primary" style="width: 48px;" routerLink="/Catalogue"><svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 96 960 960" width="28"><path d="M360 816 121 577l239-239 43 43-167 167h544V376h60v231H237l166 166-43 43Z"/></svg></button>
+          </div>
+      </div>
+    </main>
+    <!-- <link rel="stylesheet" href="" /> -->

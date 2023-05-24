@@ -1,0 +1,84 @@
+main{
+    display: grid;
+    place-items: center;
+    margin-top: 20px;
+}
+:host{
+    background-color: cyan;
+}
+mat-label{
+    font-size: 1rem;
+    font-weight: 500;
+    place-self: center;
+}
+mat-card{
+    width: 80%;
+    padding: 20px;
+}
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.example-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    padding-top: 30px;
+}
+.example-form>div>section{
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-card-footer{
+    padding: 10px 0;
+    display: flex;
+    justify-content: right;
+}
+.closeBtn{
+    margin-right: 20px;
+}
+
+
+.priceInput{
+    width: 210px;
+}
+
+
+@media screen and (max-width: 950px) {
+    .example-form{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .priceInput{
+        width: 150px;
+    }
+    
+    .example-form>div>section::ng-deep .mat-mdc-text-field-wrapper {
+        height: 40px !important;
+        width: 150px;
+    }
+    .example-form>div>section::ng-deep .mat-mdc-form-field-flex {
+        margin-top: -7px !important;
+    }
+    mat-label{
+        font-size: .9rem;
+        font-weight: 300;
+    }
+}
+@media screen and (max-width: 380px) {
+    .example-form>div>section{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+    .example-form>div>section>mat-label{
+        place-self: left;
+    }
+}

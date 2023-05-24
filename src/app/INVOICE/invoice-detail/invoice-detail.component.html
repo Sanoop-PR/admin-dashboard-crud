@@ -1,0 +1,71 @@
+<main>
+    <mat-card style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;">
+        <div class="header">
+            <h3>INVOICE</h3>
+            <h3>#135178</h3>
+        </div>
+        <mat-card-content>
+            <h1>Reciever :</h1>
+            <section class="Reciever">
+                <div>
+                    <h3>Kevin</h3>
+                    <p>kevin123@gmail.com</p>
+                    <address>
+                        <p>149/1, Ok, Kumbarpet , Bangalore</p>
+                        <p>Karnataka</p>
+                        <p>India</p>
+                    </address>
+                </div>
+                <div class="dateDiv">
+                    <p>Invoice Date : Saturday, April 07 2023</p>
+                    <p>Due Date : Sunday, April 19 2023</p>
+                </div>
+            </section>
+            <mat-divider></mat-divider>
+            <section>
+                <table mat-table [dataSource]="invoice" class="mat-elevation-z8">
+
+                    <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+                  
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="position">
+                      <th mat-header-cell *matHeaderCellDef> No. </th>
+                      <td mat-cell *matCellDef="let element; let i=index"> {{i+1}} </td>
+                    </ng-container>
+                  
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                      <th mat-header-cell *matHeaderCellDef> Description </th>
+                      <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
+                    </ng-container>
+                  
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="weight">
+                      <th mat-header-cell *matHeaderCellDef> Qty </th>
+                      <td mat-cell *matCellDef="let element"> {{element.Qty}} </td>
+                    </ng-container>
+                  
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="symbol">
+                      <th mat-header-cell *matHeaderCellDef> Unit Cost </th>
+                      <td mat-cell *matCellDef="let element"> ${{element.UnitCost}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="total">
+                        <th mat-header-cell *matHeaderCellDef> Unit Cost </th>
+                        <td mat-cell *matCellDef="let element"> ${{element.total}} </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+                  <mat-divider></mat-divider>
+                  <div class="total">
+                    <p>Total Cost:</p>
+                    <p>$168</p>
+                  </div>
+            </section>
+        </mat-card-content>
+    </mat-card>      
+</main>

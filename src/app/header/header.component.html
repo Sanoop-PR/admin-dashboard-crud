@@ -1,0 +1,104 @@
+<main>
+    <header>
+        <div>
+            <mat-icon class="material-symbols-outlined" (click)="sideBarOpen()">
+                swap_horiz
+            </mat-icon>
+            <h3 class="TasteTheFresh">Taste The Fresh</h3>
+        </div>
+        <!-- <div class="search">
+            <mat-form-field appearance="outline" style="height: 40px; background-color: white;">
+                <mat-icon matSuffix>search</mat-icon>
+                <input matInput placeholder="search">
+            </mat-form-field>
+        </div> -->
+        <div class="search">
+            <mat-icon class="notifications" matBadgeSize="small" matBadge="15"  matBadgeColor="warn" cdkMenuItem [cdkMenuTriggerFor]="file">mail_outlined</mat-icon>
+        </div>
+        <div>
+            <mat-icon class="notifications" cdkMenuItem [cdkMenuTriggerFor]="edit">notifications</mat-icon>
+        </div>
+        <div class="profile">
+			<div class="image" cdkMenuItem [cdkMenuTriggerFor]="format">
+				<div class="circle-1"></div>
+				<div class="circle-2"></div>
+				<img src="https://th.bing.com/th/id/OIP.OOh0PWJjoab-C0l3WQs4ugHaLL?w=115&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7" width="40" height="40" alt="Jessica Potter">
+			</div>
+		</div>
+    </header>
+    <ng-template #file>
+        <div class="example-menu" cdkMenu>
+          
+        </div>
+    </ng-template>
+      
+    <ng-template #edit>
+        <div class="example-menu notif-div" cdkMenu>
+            <mat-card>
+                <mat-card-content>
+                    <h4>notifications</h4>
+                    <mat-divider></mat-divider>
+                    <mat-list class="notif-list">
+                        <mat-list-item>
+                            <span matListItemTitle class="notifi-title">You have newly registered users</span>
+                            <span matListItemLine class="notifi-subtitle">
+                                <mat-icon>schedule</mat-icon>
+                                30 minutes ago
+                            </span>
+                        </mat-list-item>
+                        <mat-list-item>
+                          <span matListItemTitle class="notifi-title">Your account was logged in from an unauthorized IP</span>
+                            <span matListItemLine class="notifi-subtitle">
+                                <mat-icon>schedule</mat-icon>
+                                45 minutes ago
+                            </span>
+                        </mat-list-item>
+                        <mat-list-item>
+                          <span matListItemTitle class="notifi-title">An application form has been submitted</span>
+                          <span matListItemLine class="notifi-subtitle">
+                            <mat-icon>schedule</mat-icon>
+                            1 day ago</span>
+                        </mat-list-item>
+                    </mat-list>
+                    <mat-divider></mat-divider>
+                    <mat-card-footer>
+                        <h4>View all Notifications</h4>
+                    </mat-card-footer>
+                </mat-card-content>
+            </mat-card>  
+        </div>
+    </ng-template>
+      
+    <ng-template #format >
+        <div class="example-menu" cdkMenu>
+            <mat-card class="profile-card">
+                <!-- <mat-card-content> -->
+                    <mat-list>
+                        <mat-list-item>
+                          <mat-icon matListItemIcon>person_outline</mat-icon>
+                          <div matListItemTitle>profile</div>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item>
+                          <mat-icon matListItemIcon>mail_outline</mat-icon>
+                          <div matListItemTitle>Inbox</div>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <mat-icon matListItemIcon>settings_outline</mat-icon>
+                            <div matListItemTitle>Account Settings</div>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item>
+                            <mat-icon matListItemIcon>lock_outline</mat-icon>
+                            <div matListItemTitle>Lock</div>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <mat-icon matListItemIcon>power_settings_new_outline</mat-icon>
+                            <div matListItemTitle>Logout</div>
+                        </mat-list-item>
+                    </mat-list>
+                <!-- </mat-card-content> -->
+            </mat-card>
+        </div>
+    </ng-template>
+</main>

@@ -1,0 +1,422 @@
+<main >
+  <mat-card style="box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 15px;">
+    <mat-card-content><h2><b>Welcome, John</b></h2></mat-card-content>
+  </mat-card>
+  <br><br>
+  <section class="FOurgraph">
+      <div>
+        <div class="graph-title">
+          <h4>Sells Graph</h4>
+          <h2>$8,451</h2>
+        </div>
+        <div>
+            <highcharts-chart 
+          [Highcharts]="Highcharts"
+          [options]="SellsGraph"
+        
+          style=" display: block; "
+        ></highcharts-chart>
+        </div>
+      </div>
+      <div>
+        <div class="graph-title">
+          <h4>Total Visitors</h4>
+          <h2>3,973</h2>
+        </div>
+        <div>
+            <highcharts-chart 
+          [Highcharts]="Highcharts"
+          [options]="TotalVisitors"
+        
+          style="display: block; "
+        ></highcharts-chart>
+        </div>
+      </div>
+      <div>
+        <div class="graph-title">
+          <h4>New Users</h4>
+          <h2>7,333</h2>
+        </div>
+        <div>
+          <highcharts-chart 
+          [Highcharts]="Highcharts"
+          [options]="NewUsers"
+      
+          style=" display: block; "
+          ></highcharts-chart>
+        </div>
+      </div>
+      <div>
+        <div class="graph-title">
+          <h4>Total Orders</h4>
+          <h2>48,973</h2>
+        </div>
+        <div>
+          <highcharts-chart 
+          [Highcharts]="Highcharts"
+          [options]="TotalOrders"
+      
+          style=" display: block; "
+          ></highcharts-chart>
+        </div>
+      </div>
+  </section>
+
+  <!-- table -recent food request -->
+  <section class="recent-food-section analysis">
+    <mat-card style="box-shadow: none;">
+      <mat-card-content >
+        <h3>RECENT ORDERS REQUESTED</h3>
+        <button type="button" mat-raised-button color="warn">View All</button>
+      </mat-card-content>
+    </mat-card>
+    <mat-divider></mat-divider>
+      <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="recentFood | slice:0:5">
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="ID">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="recentFoodColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: recentFoodColumns;"></tr>
+      </table>
+    </div>
+    
+
+  </section>
+
+
+  <!-- MONTHLY REVENUE -->
+  <section class="MONTHLYREVENUE analysis" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+    <mat-card style="box-shadow: none;">
+      <mat-card-content>
+        <h3>MONTHLY REVENUE </h3>
+        <mat-form-field appearance="fill">
+          <mat-label>Select me</mat-label>
+          <mat-select #months (selectionChange)="changeMonth($event.value)">
+            <mat-option *ngFor="let item of getMonth" [value]="item.weeks">{{item.month}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+    <mat-divider></mat-divider>
+    <section>
+      <mat-card>
+        <mat-card-content>
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              <div class="weekPercentage">
+                <h4>week 1</h4>
+                <p>{{weekOne}}%</p>
+              </div>
+              <mat-progress-bar mode="determinate" value="{{weekOne}}"></mat-progress-bar>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <div class="weekPercentage">
+                <h4>week 2</h4>
+                <p>{{weekTwo}}%</p>
+              </div>
+              <mat-progress-bar mode="determinate" value="{{weekTwo}}"></mat-progress-bar>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <div class="weekPercentage">
+                <h4>week 3</h4>
+                <p>{{weekThree}}%</p>
+              </div>
+              <mat-progress-bar mode="determinate" value="{{weekThree}}"></mat-progress-bar>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <div class="weekPercentage">
+                <h4>week 4</h4>
+                <p>{{weekFour}}%</p>
+              </div>
+              <mat-progress-bar mode="determinate" value="{{weekFour}}"></mat-progress-bar>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </section>
+
+
+
+  <!-- TREADING ORDERS -->
+  <section class="TREADINGORDERS analysis" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+    <mat-card>
+      <mat-card-header>
+        <h2>TREADING ORDERS</h2>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <br>
+      <mat-card-content>
+        <mat-card class="example-card trd-order-card">
+          <img mat-card-image src="./assets/images/delicious-tasty-pizza.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <br>
+            <h4>Pizza</h4>
+            <div class="trd-order-contant">
+              <mat-card-subtitle>Orders <span>15</span></mat-card-subtitle>
+              <div>
+                <h4>$25.00</h4>
+                <mat-card-subtitle>Income <span>$175</span></mat-card-subtitle>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="example-card trd-order-card">
+          <img mat-card-image src="./assets/images/juicy-burger.jpg" alt="Photo of a Shiba Inu" width="100%">
+          <mat-card-content>
+            <br>
+            <h4>Pizza</h4>
+            <div class="trd-order-contant">
+              <mat-card-subtitle>Orders <span>23</span></mat-card-subtitle>
+              <div>
+                <h4>$25.00</h4>
+                <mat-card-subtitle>Income <span>$105</span></mat-card-subtitle>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <h4></h4>
+          </mat-card-actions>
+        </mat-card>
+
+        <mat-card class="example-card trd-order-card">
+          <img mat-card-image src="./assets/images/pancake.webp" alt="Photo of a Shiba Inu" width="100%">
+          <mat-card-content>
+            <br>
+            <h4>Pizza</h4>
+            <div class="trd-order-contant">
+              <mat-card-subtitle>Orders <span>45</span></mat-card-subtitle>
+              <div>
+                <h4>$25.00</h4>
+                <mat-card-subtitle>Income <span>$195</span></mat-card-subtitle>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="example-card trd-order-card">
+          <img mat-card-image src="./assets/images/biriyani.webp" alt="Photo of a Shiba Inu" width="100%">
+          <mat-card-content>
+            <br>
+            <h4>Pizza</h4>
+            <div class="trd-order-contant">
+              <mat-card-subtitle>Orders <span>19</span></mat-card-subtitle>
+              <div>
+                <h4>$25.00</h4>
+                <mat-card-subtitle>Income <span>$345</span></mat-card-subtitle>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        
+      </mat-card-content>
+    </mat-card>
+  </section>
+  
+  <!-- ORDER TIMING CHART -->
+  <section class="TIMINGCHART analysis" style="box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;">
+    <mat-card style="box-shadow: none;">
+      <mat-card-header>
+        <h1>ORDER TIMING CHART</h1>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <div>
+          <mat-card-subtitle>Total Orders</mat-card-subtitle>
+          <h1>703,49</h1>
+        </div>
+        <div>
+          <mat-card-subtitle>New Orders</mat-card-subtitle>
+          <h1>95,038</h1>
+        </div>
+        <div>
+          <mat-card-subtitle>Repeat Orders</mat-card-subtitle>
+          <h1>28,387</h1>
+        </div>
+        <div>
+          <mat-card-subtitle>Cancel Orders</mat-card-subtitle>
+          <h1>324</h1>
+        </div>
+      </mat-card-content>
+    </mat-card>    
+    <div>
+      <highcharts-chart 
+      [Highcharts]="Highcharts"
+      [options]="TIMINGCHART"
+  
+      style="width: 100%; display: block; "
+      ></highcharts-chart>
+    </div> 
+  </section>
+  
+  <!-- FAVORITE CHARTS -->
+  <section style="margin-top: 30px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;">
+    <mat-card>
+      <mat-card-content>
+        <h2>WEEKLY REVENUE</h2>
+      </mat-card-content>
+      <div>
+        <mat-tab-group animationDuration="5ms" backgroundColor="warn">
+          <mat-tab label="MONDAY">
+            <!-- monday -->
+            <table mat-table [dataSource]="mondayData">
+              <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.restaurant}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="Qty">
+                  <th mat-header-cell *matHeaderCellDef> Qty </th>
+                  <td mat-cell *matCellDef="let element"> {{element.qty}} </td>
+              </ng-container>
+                      
+              <ng-container matColumnDef="Orders">
+                <th mat-header-cell *matHeaderCellDef> Orders </th>
+                <td mat-cell *matCellDef="let element" [style.color]="element.color"> {{element.Orders}}% </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="Profit">
+                <th mat-header-cell *matHeaderCellDef> Profit </th>
+                <td mat-cell *matCellDef="let element"> {{element.profit}}% </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="weekColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: weekColumns;"></tr>
+            </table>
+          </mat-tab>
+          <mat-tab label="TUESDAY">
+            <!-- tuesday -->
+            <table mat-table [dataSource]="tuesdayData" class="mat-elevation-z8">
+              <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.restaurant}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="Qty">
+                  <th mat-header-cell *matHeaderCellDef> Qty </th>
+                  <td mat-cell *matCellDef="let element"> {{element.qty}} </td>
+              </ng-container>
+                      
+              <ng-container matColumnDef="Orders">
+                <th mat-header-cell *matHeaderCellDef> Orders </th>
+                <td mat-cell *matCellDef="let element" [style.color]="element.color"> {{element.Orders}}% </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="Profit">
+                <th mat-header-cell *matHeaderCellDef> Profit </th>
+                <td mat-cell *matCellDef="let element"> {{element.profit}}% </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="weekColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: weekColumns;"></tr>
+            </table>
+          </mat-tab>
+          <mat-tab label="WEDNESDAY">
+            <!-- wednesday -->
+            <table mat-table [dataSource]="wednesdayData" class="mat-elevation-z8">
+                    
+              <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.restaurant}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="Qty">
+                  <th mat-header-cell *matHeaderCellDef> Qty </th>
+                  <td mat-cell *matCellDef="let element"> {{element.qty}} </td>
+              </ng-container>
+                      
+              <ng-container matColumnDef="Orders">
+                <th mat-header-cell *matHeaderCellDef> Orders </th>
+                <td mat-cell *matCellDef="let element" [style.color]="element.color"> {{element.Orders}}% </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="Profit">
+                <th mat-header-cell *matHeaderCellDef> Profit </th>
+                <td mat-cell *matCellDef="let element"> {{element.profit}}% </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="weekColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: weekColumns;"></tr>
+            </table>
+          </mat-tab>
+          <mat-tab label="THURSDAY">
+            <!-- thursday -->
+            <table mat-table [dataSource]="thursdayData" class="mat-elevation-z8">
+                    
+              <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.restaurant}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="Qty">
+                  <th mat-header-cell *matHeaderCellDef> Qty </th>
+                  <td mat-cell *matCellDef="let element"> {{element.qty}} </td>
+              </ng-container>
+                      
+              <ng-container matColumnDef="Orders">
+                <th mat-header-cell *matHeaderCellDef> Orders </th>
+                <td mat-cell *matCellDef="let element" [style.color]="element.color"> {{element.Orders}}% </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="Profit">
+                <th mat-header-cell *matHeaderCellDef> Profit </th>
+                <td mat-cell *matCellDef="let element"> {{element.profit}}% </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="weekColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: weekColumns;"></tr>
+            </table>
+
+          </mat-tab>
+          <mat-tab label="FRIDAY">
+            <!-- friday -->
+            <table mat-table  class="mat-elevation-z8" [dataSource]="fridayData">
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.restaurant}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="Qty">
+                <th mat-header-cell *matHeaderCellDef> Qty </th>
+                <td mat-cell *matCellDef="let element"> {{element.qty}} </td>
+              </ng-container>
+                      
+              <ng-container matColumnDef="Orders">
+                <th mat-header-cell *matHeaderCellDef> Orders </th>
+                <td mat-cell *matCellDef="let element" [style.color]="element.color"> {{element.Orders}}% </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="Profit">
+                <th mat-header-cell *matHeaderCellDef> Profit </th>
+                <td mat-cell *matCellDef="let element"> {{element.profit}}% </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="weekColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: weekColumns;"></tr>
+            </table>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-card>
+    
+  </section>
+
+
+</main>

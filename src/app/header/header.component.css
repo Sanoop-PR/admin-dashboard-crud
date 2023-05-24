@@ -1,0 +1,153 @@
+main{
+    background-color: #FFEE63;
+}
+header{
+    height: 60px;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+header>div{
+    padding: 0 20px;
+}
+.search{
+    margin-left: auto;
+}
+.material-symbols-outlined{
+	font-size: 2rem;
+	width: 40px;
+}
+.material-symbols-outlined:hover{
+	color: rgb(183, 183, 183);
+}
+
+.TasteTheFresh{
+	padding-left: 10px;
+	display: inline;
+	font-size: 2rem;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	background: url("https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=400");
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: #5b728a54;
+	animation: move 30s linear infinite;
+	letter-spacing: 3px;
+}
+@keyframes move {
+	from{background-position: 0 80%;}
+	to {background-position: 100% 50%;}
+}
+
+
+/* notification */
+
+.notifications:hover{
+    transition: transform .2s; 
+    transform: scale(1.2);
+}
+.notif-div>mat-card{
+    width: 300px;
+}
+
+.notifi-title{
+    font-size: .9rem;
+}
+.notifi-subtitle{
+    font-size: .7rem;
+}
+.notifi-subtitle>mat-icon{
+    font-size: .8rem;
+    width: 12px;
+    height: 10px;
+}
+/* notification */
+
+
+
+
+/* profile image start */
+.profile {
+	/* float: left; */
+	width: 40px;
+	height: 40px;
+	text-align: center;
+}
+.profile .image {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	/* margin: 38px auto 0 auto; */
+}
+.profile .image .circle-1, .profile .image .circle-2 {
+	position: absolute;
+	box-sizing: border-box;
+	width: 46px;
+	height: 46px;
+	top: -3px;
+	left: -3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: black black black transparent;
+	border-radius: 50%;
+	transition: all 1.5s ease-in-out;
+}
+.profile .image .circle-2 {
+	width: 52px;
+	height: 52px;
+	top: -6px;
+	left: -6px;
+	border-color: black transparent black black;
+}
+.profile .image img {
+	display: block;
+	border-radius: 50%;
+	background: #F5E8DF;
+}
+.profile .image:hover {
+	cursor: pointer;
+}
+.profile .image:hover .circle-1, .profile .image:hover .circle-2 {
+	transform: rotate(360deg);
+}
+.profile .image:hover .circle-2 {
+	transform: rotate(-360deg);
+}
+
+/* profile image end */
+
+/* profile card */
+/** No CSS for this example */
+.profile-card{
+    padding:0 !important;
+}
+.profile-card> mat-card-content{
+    padding: 0;
+    margin: 0;
+}
+/* profile card end */
+
+
+/* .search::ng-deep .mat-mdc-text-field-wrapper {
+    height: 40px !important;
+}
+.search::ng-deep .mat-mdc-form-field-flex {
+    margin-top: -7px !important;
+} */
+
+
+
+@media screen and (max-width: 500px) {
+	header>div{
+		padding: 0 10px;
+	}
+	.TasteTheFresh{
+		padding-left: 5px;
+		font-size: 1.5rem;
+		letter-spacing: 1px;
+
+	}
+	.material-symbols-outlined{
+		font-size: 2rem;
+		width: 30px;
+	}
+}

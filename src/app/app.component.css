@@ -1,0 +1,19 @@
+mat-drawer-content{
+    height: 100vh;
+}
+
+mat-drawer{
+    width: 22%;
+    /* background-color: #C0DEFF; */
+}
+app-header{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+@media screen and (max-width: 500px) {
+    mat-drawer{
+        width: 45%;
+    }
+}

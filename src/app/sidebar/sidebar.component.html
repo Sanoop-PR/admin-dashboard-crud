@@ -1,0 +1,89 @@
+<main>
+  <div class="image">
+    <img src="./assets/images/Screenshot 2023-05-14 225600.png" alt="">
+  </div>
+  <!-- dashboard -->
+  <cdk-accordion class="example-accordion">
+    <cdk-accordion-item
+      class="example-accordion-item"
+      role="button">
+      <div class="example-accordion-item-header" routerLink="dashboard">
+        <h4><mat-icon>dashboard</mat-icon>Dashboard </h4>
+      </div>
+    </cdk-accordion-item>
+  </cdk-accordion>
+  <!-- menu -->
+  <cdk-accordion class="example-accordion">
+    <cdk-accordion-item
+      #accordionItem1="cdkAccordionItem"
+      class="example-accordion-item"
+      role="button">
+      <div class="example-accordion-item-header" (click)="accordionItem1.toggle()">
+         <h4><mat-icon>inventory_2</mat-icon>Menu</h4>
+        <span class="example-accordion-item-description">
+          <mat-icon>{{ accordionItem1.expanded ? 'arrow_drop_up' : 'arrow_drop_down' }}</mat-icon>
+        </span>
+      </div>
+      <div
+        class="example-accordion-item-body"
+        role="region"
+        [style.display]="accordionItem1.expanded ? '' : 'none'">
+        <mat-list role="list" class="sbList">
+          <mat-list-item role="listitem" routerLink="Catalogue"><span class="menuItem">Menu Catalogue</span></mat-list-item>
+          <mat-list-item role="listitem" routerLink="menuGrid"><span class="menuItem">Menu Grid</span></mat-list-item>
+          <mat-list-item role="listitem" routerLink="add-Food"><span class="menuItem">Add Product</span></mat-list-item>
+        </mat-list>
+        
+      </div>
+    </cdk-accordion-item>
+  </cdk-accordion>
+  <!-- order -->
+  <cdk-accordion class="example-accordion">
+    <cdk-accordion-item
+      class="example-accordion-item"
+      role="button">
+      <div class="example-accordion-item-header" routerLink="orders">
+         <h4><mat-icon>assignment</mat-icon>Orders</h4>
+      </div>
+    </cdk-accordion-item>
+  </cdk-accordion>
+  <!-- restaurant list -->
+  <cdk-accordion class="example-accordion">
+    <cdk-accordion-item
+      #accordionItem2="cdkAccordionItem"
+      class="example-accordion-item"
+      role="button">
+      <div class="example-accordion-item-header" (click)="accordionItem2.toggle()">
+         <h4><mat-icon>description</mat-icon>Invoice</h4>
+        <span class="example-accordion-item-description">
+          <mat-icon>{{ accordionItem2.expanded ? 'arrow_drop_up' : 'arrow_drop_down' }}</mat-icon>
+        </span>
+      </div>
+      <div
+        class="example-accordion-item-body"
+        role="region"
+        [style.display]="accordionItem2.expanded ? '' : 'none'">
+        <mat-list role="list" class="sbList">
+          <mat-list-item role="listitem" routerLink="invoiceDetails">
+            <span class="menuItem">Invoice Detail</span>
+          </mat-list-item>
+          <mat-list-item role="listitem" routerLink="invoiceList">
+            <span class="menuItem">Invoice List</span>
+          </mat-list-item>
+        </mat-list>
+        
+      </div>
+    </cdk-accordion-item>
+  </cdk-accordion>
+    <!-- social activity -->
+    <cdk-accordion class="example-accordion">
+      <cdk-accordion-item
+        class="example-accordion-item"
+        role="button">
+        <div class="example-accordion-item-header" routerLink="socialActivity">
+           <h4><mat-icon>groups</mat-icon>Social Activity</h4>
+        </div>
+      </cdk-accordion-item>
+    </cdk-accordion>
+  
+</main>

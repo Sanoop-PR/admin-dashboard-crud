@@ -1,0 +1,88 @@
+<main>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>EDIT PRODUCT</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <form  #addFoodForm="ngForm">
+          <mat-card-content>
+              <section class="example-form">
+                  <div>
+                      <section>
+                      <mat-label>Id : </mat-label>
+                      <mat-form-field appearance="outline" class="example-full-width">
+                        <input matInput placeholder="123" name="id" #id="ngModel" [(ngModel)]="food.id" required>
+                        <mat-error *ngIf="id.invalid && id.touched">please enter id</mat-error>
+                      </mat-form-field>
+                      </section>
+                      <section>
+                          <mat-label>Product Name : </mat-label>
+                          <mat-form-field class="example-full-width" appearance="outline">
+                            <input matInput placeholder="pizza" name="name" #name="ngModel" [(ngModel)]="food.name" required pattern="[a-zA-Z ]*">
+                            <mat-error *ngIf="name.invalid && name.touched">please enter a valid name</mat-error>
+                          </mat-form-field>
+                      </section>
+                      <section>
+                        <mat-label>Quantity : </mat-label>
+                        <mat-form-field appearance="outline">
+                          <input matInput placeholder="6325" name="Quantity" #Quantity="ngModel" [(ngModel)]="food.quanity" required pattern="[0-9]*">
+                          <mat-error *ngIf="Quantity.invalid && Quantity.touched">please enter a valid input</mat-error>
+                        </mat-form-field>
+                      </section>
+                      <section>
+                          <mat-label>Price : </mat-label>
+                          <mat-form-field appearance="outline"  class="priceInput">
+                            <input matInput name="Price" #Price="ngModel" [(ngModel)]="food.price" required pattern="[0-9]*" class="example-right-align" placeholder="0">
+                            <span matTextPrefix>$&nbsp;</span>
+                            <span matTextSuffix>.00</span>
+                            <mat-error *ngIf="Price.invalid && Price.touched">please enter a valid input</mat-error>
+                          </mat-form-field>
+                      </section>
+                  </div>
+                  <div>
+                      <section>
+                          <mat-label>Order: </mat-label>
+                          <mat-form-field class="example-full-width" appearance="outline">
+                            <input matInput placeholder="423" name="Order" #Order="ngModel" [(ngModel)]="food.order" required pattern="[0-9]*">
+                            <mat-error *ngIf="Order.invalid && Order.touched">please enter a valid input</mat-error>
+                          </mat-form-field>
+                      </section>
+                      <section>
+                          <mat-label>Stock : </mat-label>
+                          <mat-form-field appearance="outline">
+                          <mat-select name="Stock" #Stock="ngModel" [(ngModel)]="food.stock" required pattern="[a-zA-Z ]*">
+                            <mat-option value="{{option.title}}" *ngFor="let option of stockOption">{{option.title}}</mat-option>
+                            <!-- <mat-option value="Out&nbsp;of&nbsp;stock">Out of Stock</mat-option> -->
+                          </mat-select>
+                          <!-- <mat-error *ngIf="Stock.invalid && Stock.touched">please select an option</mat-error> -->
+                        </mat-form-field>
+                      </section>
+                      <section>
+                          <mat-label>Revenue : </mat-label>
+                          <mat-form-field appearance="outline"  class="priceInput">
+                            <input matInput name="Revenue" #Revenue="ngModel" [(ngModel)]="food.revenue" required pattern="[0-9]*" class="example-right-align" placeholder="0">
+                            <span matTextPrefix>$&nbsp;</span>
+                            <span matTextSuffix>.00</span>
+                            <mat-error *ngIf="Revenue.invalid && Revenue.touched">please enter a valid revenue</mat-error>
+                          </mat-form-field>
+                      </section>
+                      <section>
+                          <mat-label>Product Image : </mat-label>
+                          <mat-form-field appearance="outline" class="example-full-width">
+                            <input matInput placeholder="https://example.com" type="url" name="Image" #Image="ngModel" [(ngModel)]="food.image" size="30" required>
+                            <mat-error *ngIf="Image.invalid && Image.touched">please enter image url</mat-error>
+                          </mat-form-field>
+                      </section>
+                  </div>
+              </section>
+          </mat-card-content>
+          <mat-divider></mat-divider>
+          <mat-card-footer>
+            <button mat-raised-button color="primary" type="button" class="closeBtn" routerLink="/menuGrid">close</button>
+            <button mat-raised-button color="warn" type="button" (click)="editFood(food.id);openSnackBar();" class="saveBtn" [disabled]="addFoodForm.invalid" routerLink="/Catalogue">Save</button>
+          </mat-card-footer>
+        </form>
+    </mat-card>
+
+      
+</main>
